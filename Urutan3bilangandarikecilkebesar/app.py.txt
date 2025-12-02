@@ -1,0 +1,41 @@
+import streamlit as st
+
+def main():
+    # 1. Judul Aplikasi
+    st.title("Aplikasi Pengurutan Tiga Bilangan")
+    st.subheader("Oleh Gemini AI")
+
+    # 2. Input Bilangan (Ganti input() dengan st.number_input())
+    # st.number_input lebih baik daripada st.text_input untuk angka
+    st.markdown("---") # Garis pemisah
+
+    a = st.number_input("Masukkan Bilangan Pertama (A):", value=0, step=1, key="a")
+    b = st.number_input("Masukkan Bilangan Kedua (B):", value=0, step=1, key="b")
+    c = st.number_input("Masukkan Bilangan Ketiga (C):", value=0, step=1, key="c")
+
+    st.markdown("---")
+
+    # 3. Tombol Eksekusi
+    if st.button("Urutkan Bilangan"):
+        # Logika Pengurutan
+        
+        # Masukkan ketiga bilangan ke dalam list
+        bilangan = [a, b, c]
+        
+        # Gunakan fungsi sorted() Python untuk mengurutkan secara otomatis
+        bilangan_terurut = sorted(bilangan)
+        
+        # Tampilkan Hasil (Ganti print() dengan st.success() atau st.write())
+        st.success("✅ Hasil Pengurutan:")
+        
+        # Mengambil hasil yang sudah diurutkan dari list
+        x, y, z = bilangan_terurut[0], bilangan_terurut[1], bilangan_terurut[2]
+        
+        # Menampilkan output dengan format yang jelas
+        st.write(f"Urutan bilangan dari yang **paling kecil** adalah: **{x}**, **{y}**, **{z}**")
+        
+        st.info(f"Bilangan Terbesar: {z}")
+        st.warning(f"Bilangan Terkecil: {x}")
+
+if __name__ == "__main__":
+    main()
